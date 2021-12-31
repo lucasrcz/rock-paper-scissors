@@ -1,1 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let playerScore = 0;
+        let computerScore = 0;
+        let computerSelection = 0;
+        let playerSelection = 0;
+        let gameInfo = round()
+        const computerRandom = ['rock', 'paper', 'scissors'];
+        
+        //Computador joga, selecionando aleatoriamente do array.
+        function computerPlay() {
+            computerSelection = computerRandom[Math.floor(Math.random() * computerRandom.length)];
+            return computerSelection
+        }
+       
+        //Pede para o jogador selecionar pedra,papel e tesoura.
+        function playerPlay() {
+            playerSelection = prompt('Chose beetween Rock,Paper or Scissors!').toLowerCase();
+            return playerSelection
+        }
+       
+        // pedra derota tesoura , tesoura derrota papel , papel derrota pedra.
+        function round(playerSelection, computerSelection) {
+            if (playerSelection === computerSelection) {
+                return 'It`s a drawn!';
+            } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
+                playerScore = playerScore + 1;
+                return 'You win! Rock beats Scissors!';
+            } else if (playerSelection === 'rock' && computerSelection === 'paper') {
+                computerScore = computerScore + 1;
+                return 'You loose! Scissors beats Rock!';
+            } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
+                playerScore = playerScore + 1;
+                return 'You win! Scissors beats paper!';
+            } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
+                computerScore = computerScore + 1;
+                return 'You loose! Rock beats Scissors!';
+            } else if (playerSelection === 'paper' && computerSelection === 'rock') {
+                playerScore = playerScore + 1;
+                return 'You Win! Paper beats Rock!';
+            } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
+                computerScore = computerScore + 1;
+                return 'You loose! Scissors beats Paper!';
+            }
+        }
+        
+        //Função que irá jogar o jogo Pedra,Papel e Tesoura!
+        function game() {
+                for (let i = 0; i <= 4; i++) {
+                    playerSelection = playerPlay(); //Player Seleciona
+                    if(playerSelection !== 'paper' && playerSelection !== 'rock' && playerSelection !== 'scissors'){
+                      console.log('Enter a valid option!');
+                      i--;
+                      continue; 
+                    }
+                    console.log('Your choice: ' + playerSelection)
+                    computerSelection = computerPlay(); //Computador Seleciona
+                    console.log('Computer choice:' + computerSelection)
+                    round(playerSelection, computerSelection); // O round começa!
+                    console.log('SCORE:')
+                    console.log('You:' + playerScore)
+                    console.log('PC:' + computerScore)
+                }
+            }
+        function checkWinner() {
+            if (playerScore > computerScore) {
+                console.log('The winner of the game is you!')
+            } else if (playerScore < computerScore) {
+                console.log('The winner is the computer! You loose! Better luck next time!')
+            } else {
+                console.log('The game is over! It`s a drawn!')
+            }
+        }
+        game()
+        checkWinner()
+    </script>
+</body>
+
+</html>
