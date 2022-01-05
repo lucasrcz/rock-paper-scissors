@@ -1,3 +1,4 @@
+//declaração das variavéis globais 
 let playerScore = 0;
 let computerScore = 0;
 let computerSelection = '';
@@ -101,23 +102,25 @@ rockButton.addEventListener('click', () => {
 })
 
 paperButton.addEventListener('click', () => {
-    playerSelection = 'paper' // Jogador seleciona através do click
-    computerSelection = computerPlay() // o PC escolhe
-    updateChoiceComputer() //Atualiza a pagina e mostra o score do computador
-    updateChoicePlayer()   //Atualiza a pagina e mostra o score do jogador
-    round(playerSelection,computerSelection) // Joga o round
-    checkWinner() //Checa quem é o vencedor
-    updateScore() //Atualiza o placar
+    playerSelection = 'paper'
+    computerSelection = computerPlay()
+    updateChoiceComputer() 
+    updateChoicePlayer()   
+    round(playerSelection,computerSelection) 
+    checkWinner() 
+    updateScore() 
+    resetGame()
 })
 
 scissorsButton.addEventListener('click', () => {
-    playerSelection = 'scissors' // Jogador seleciona através do click
-    computerSelection = computerPlay() // o PC escolhe
-    updateChoiceComputer() //Atualiza a pagina e mostra o score do computador
-    updateChoicePlayer()   //Atualiza a pagina e mostra o score do jogador
-    round(playerSelection,computerSelection) // Joga o round
-    checkWinner() //Checa quem é o vencedor
-    updateScore() //Atualiza o placar
+    playerSelection = 'scissors' 
+    computerSelection = computerPlay() 
+    updateChoiceComputer() 
+    updateChoicePlayer()   
+    round(playerSelection,computerSelection) 
+    checkWinner() 
+    updateScore() 
+    resetGame()
 
 })
 
